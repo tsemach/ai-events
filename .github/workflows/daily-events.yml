@@ -1,0 +1,28 @@
+name: Daily Culture Events Digest
+
+on:
+  schedule:
+    # 05:00 UTC ≈ 08:00 Israel during summer (IDT, UTC+3).
+    # In winter (IST, UTC+2) this fires at 07:00 local. See README on DST.
+    - cron: "0 5 * * *"
+  workflow_dispatch: {} # lets you run it manually from the Actions tab to test
+
+jobs:
+  send-digest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run culture agent
+        run: node agent.js
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          # Optional overrides:
+          # CLAUDE_MODEL: claude-haiku-4-5-20251001
+          # EVENT_WINDOW_DAYS: "14"
