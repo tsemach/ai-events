@@ -44,6 +44,8 @@ Good Hebrew/Israeli sources to check (search these in addition to general querie
 - Suzanne Dellal Center / סוזן דלל (dance)
 - Habima, Cameri, Tmuna theaters
 - Time Out Tel Aviv, secrettlv event listings
+- https://www.israel-opera.co.il/show/
+- https://muzi.co.il/
 
 Then write a SHORT, scannable digest as a Telegram message. Rules for the output:
 - Plain text only. No Markdown symbols like *, _, #, or backticks (they break in Telegram).
